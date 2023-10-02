@@ -6,6 +6,8 @@
     border-radius: 2vh; /* Border radius based on viewport height */
     box-shadow: 1vw 1vw 2vw rgba(0, 0, 0, 0.1); /* Box shadow based on viewport width */
     margin: 5vh;
+    position: relative;
+    top: 10vh;
   }
   
   .post-details-container .close-button {
@@ -54,5 +56,40 @@
   #comment:hover {
     background-color: #0056b3; /* Fallback color in case custom property is not supported */
   }
+  /* Add these styles to your CSS file */
+/* Add these styles to your CSS file */
+.comments {
+    margin-top: 3vh; /* Adjust the top margin */
+    height: 40vh; /* Set a fixed height for the comments container */
+    overflow-y: auto; /* Add vertical scrollbar when the content overflows */
+    padding: 2vh 0; /* Add padding to the top and bottom of the container */
+  }
+  
+  .comments h4 {
+    font-size: 3vh; /* Font size based on viewport height */
+    color: var(--primary); /* Use custom property for the text color */
+    margin-bottom: 2vh; /* Adjust the bottom margin */
+  }
+  
+  .comment {
+    background-color: var(--secondary); /* Use custom property for the background color */
+    margin: 1vh 0; /* Adjust vertical margin */
+    border-radius: 1vw; /* Adjust border radius */
+    box-shadow: 0.5vh 0.5vh 1vh rgba(0, 0, 0, 0.1); /* Adjust box shadow */
+  }
+  
+  .comment p {
+    font-size: 2vh; /* Font size based on viewport height */
+    line-height: 1.5; /* Adjust line height for readability */
+  }
+  
+  /* Optional: Style the categories and tags */
+  .post-categories,
+  .post-tags {
+    margin-top: 2vh;
+    font-size: 1.5vh; /* Font size based on viewport height */
+    color: var(--accent); /* Use custom property for the text color */
+  }
+
   
   

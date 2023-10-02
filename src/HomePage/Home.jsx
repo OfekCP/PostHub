@@ -93,15 +93,17 @@ const Home = () => {
     };
     const handlePostClick = (post) => {
         setSelectedPost(post);
+        setSearching(false);
     };
 
     const handleClosePostDetails = () => {
         setSelectedPost(null);
+        setSearching(true); 
     };
     return (
         <div className="home-container">
             <h1 id="posthub-title">PostHub</h1>
-            <div className="search-bar">
+            <div className={`search-bar ${selectedPost ? 'hidden' : ''}`}>
                 <input
                     type="text"
                     id="search-input"
