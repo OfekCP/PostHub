@@ -1,0 +1,117 @@
+/* Blog.css */
+
+/* Base styles for responsiveness */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .blog-container {
+    width: 80vw;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .blog-title {
+    font-size: 2.5vw;
+    margin: 0 auto 20px; /* Center horizontally and add margin at the bottom */
+    color: var(--primary);
+    text-align: center; /* Center the text horizontally */
+  }
+  
+  
+  .blog-input,
+  .blog-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2vw;
+    margin-bottom: 10px;
+  }
+  
+  .blog-input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .react-quill {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 1.2vw;
+  }
+  
+  .blog-posts {
+    margin-top: 20px;
+  }
+  
+  .blog-post {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .blog-post-title {
+    font-size: 2vw;
+    margin-bottom: 10px;
+  }
+  
+  .blog-post-content {
+    font-size: 1.5vw;
+  }
+  
+  .blog-post-date {
+    font-size: 1vw;
+    color: #888;
+    margin-top: 10px;
+  }
+  
+  .blog-post-button {
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 1.2vw;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    .blog-container {
+      width: 90vw;
+    }
+  
+    .blog-title {
+      font-size: 4vw;
+    }
+  
+    .blog-input,
+    .blog-button {
+      font-size: 3vw;
+    }
+  
+    .react-quill {
+      font-size: 2vw;
+    }
+  
+    .blog-post-title {
+      font-size: 3.5vw;
+    }
+  
+    .blog-post-content {
+      font-size: 2.5vw;
+    }
+  
+    .blog-post-date {
+      font-size: 1.5vw;
+    }
+  
+    .blog-post-button {
+      font-size: 2vw;
+    }
+  }
+  

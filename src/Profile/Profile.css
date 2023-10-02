@@ -1,0 +1,179 @@
+/* Profile.css */
+
+/* Center the entire profile container */
+#user-profile-heading {
+    text-align: center;
+    margin-top: 5vh;
+    color: var(--primary);
+    font-size: 2.5vh;
+  }
+  
+  /* Center the username section */
+  #username-heading {
+    text-align: center;
+    font-size: 2vh;
+    color: var(--text);
+  }
+  
+  /* Style the "Remove Profile Picture" button with a hover effect */
+  #remove-profile-picture-button {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 1vh 2vw;
+    margin: 2vh auto;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #remove-profile-picture-button:hover {
+    background-color: var(--secondary);
+  }
+  
+  /* Style the profile picture input and center it */
+  #profile-picture-input {
+    display: block;
+    margin: 2vh auto;
+  }
+  
+  /* Center the bio section and apply styling */
+/* Profile.css */
+
+/* ... (previous styles) */
+
+/* Bio Editing Section */
+.bio-section {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: var(--background);
+    border: 1px solid var(--primary);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  #bio-textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2vw;
+    margin: 10px 0;
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+  }
+  
+  #bio-textarea:focus {
+    border-color: var(--primary);
+  }
+  
+  #save-bio-button,
+  #edit-bio-button {
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.2vw;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  #save-bio-button:hover,
+  #edit-bio-button:hover {
+    background-color: var(--accent);
+  }
+  
+  #bio-paragraph {
+    font-size: 1.5vw;
+    margin-top: 10px;
+    color: var(--text);
+  }
+  
+  
+  /* Center the blog posts section */
+  #blog-posts-heading {
+    text-align: center;
+    margin-top: 3vh;
+    color: var(--primary);
+    font-size: 2vh;
+  }
+  
+  /* Style the blog post cards with hover and animation */
+  .blog-post {
+    margin: 3vh auto;
+    padding: 2vh 3vw;
+    border: 0.1vh solid var(--primary);
+    background-color: var(--secondary);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    width: 80%;
+  }
+  
+  .blog-post:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0.2vh 0.5vh rgba(0, 0, 0, 0.2);
+    background-color: var(--background);
+  }
+  
+  .blog-post-title {
+    font-size: 2vh;
+    color: var(--text);
+  }
+  
+  .blog-post-content {
+    margin: 2vh 0;
+    color: var(--text);
+  }
+  
+  .blog-post-date {
+    margin-top: 1vh;
+    color: var(--accent);
+    font-size: 1.5vh;
+  }
+  
+  .blog-post-button {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 1vh 2vw;
+    margin: 2vh auto;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .blog-post-button:hover {
+    background-color: var(--secondary);
+  }
+  /* Profile.css */
+
+/* Center the profile picture and apply cool design */
+.profile-picture-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-picture {
+    width: 25vw; /* Adjust the width as needed */
+    height: 25vw; /* Maintain a square aspect ratio with the same width and height */
+    border-radius: 50%; /* Create a circular profile picture */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+    border: 2vw solid var(--primary); /* Add a border with the primary color */
+    box-shadow: 0 0 2vw rgba(0, 0, 0, 0.3); /* Add a shadow for a cool effect */
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Apply smooth transitions */
+}
+
+.profile-picture:hover {
+    transform: scale(1.05); /* Enlarge the picture on hover */
+    border-color: var(--accent); /* Change border color on hover */
+    box-shadow: 0 0 3vw rgba(0, 0, 0, 0.4); /* Enhance the shadow on hover */
+}
+
+.remove-profile-picture-button {
+    font-size: 2vw; /* Adjust the button font size */
+    margin-top: 2vh; /* Adjust the top margin */
+}
+#profile-picture-input{
+    display: none;
+    opacity: 0;}

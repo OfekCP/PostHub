@@ -1,0 +1,79 @@
+/* NavBar.css */
+
+/* Navbar container */
+.navbar {
+    background-color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8vh;
+  }
+  
+  /* Navigation list */
+  .nav-list {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Navigation items */
+  .nav-item {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Navbar links */
+  .nav-item a {
+    text-decoration: none;
+    color: var(--background);
+    font-weight: bold;
+    font-size: 2vh;
+    transition: color 0.3s ease;
+  }
+  
+  /* Navbar links hover effect */
+  .nav-item a:hover {
+    color: var(--accent);
+  }
+  
+  /* Logout button */
+  .logout-button {
+    background-color: var(--secondary);
+    color: var(--text);
+    border: none;
+    padding: 1vh 2vw;
+    font-weight: bold;
+    font-size: 1.8vh;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Logout button hover effect */
+  .logout-button:hover {
+    background-color: var(--accent);
+    color: var(--background);
+  }
+  
+  /* Centering the logout button */
+  .logout-button-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Centering the entire Navbar */
+  .navbar-container {
+    display: flex;
+    justify-content: space-between; /* Pushes the h1 element to the left */
+    align-items: center; /* Vertically centers the content */
+    padding: 10px;
+    background-color: #256cdf; /* Adjust the background color as needed */
+  }
+  
+  #webHeader {
+    color: white;
+    font-size: 2.7vw; /* Adjust the font size as needed */
+    margin: 0; /* Remove any default margin */
+  }

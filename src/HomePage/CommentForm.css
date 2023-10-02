@@ -1,0 +1,43 @@
+#comment {
+    background-color: var(--primary);
+    color: white;
+    padding: 2vh 4vw;
+    border: none;
+    border-radius: 1vw;
+    cursor: pointer;
+}
+
+#comment:hover {
+    background-color: #0056b3;
+}
+
+/* CommentForm.css */
+#comment-form {
+    background-color: var(--background);
+    border-radius: 2vh;
+}
+
+.comment-form-title {
+    font-size: 1.5vh;
+    margin-bottom: 2vh;
+}
+
+#comment-textarea {
+    width: 25vw; /* Adjust width using viewport width */
+    border: 0.5vw solid var(--secondary);
+    border-radius: 1vw;
+    resize: none;
+}
+
+.comment-submit-button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 2vh 4vw;
+    border-radius: 1vw;
+    cursor: pointer;
+}
+
+.comment-submit-button:hover {
+    background-color: #0056b3;
+}
