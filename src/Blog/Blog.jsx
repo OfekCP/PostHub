@@ -95,6 +95,11 @@ const Blog = ({ user }) => {
             setBlogPosts(updatedPosts);
         }
     };
+    const getCommentsForPost = (postId) => {
+        const commentsKey = `post_${postId}_comments`;
+        const storedComments = JSON.parse(localStorage.getItem(commentsKey)) || [];
+        return storedComments;
+    };
 
     return (
         <div className="blog-container">
@@ -136,6 +141,15 @@ const Blog = ({ user }) => {
                         <p className="blog-post-categories">Categories: {post.categories.join(', ')}</p>
                         <p className="blog-post-tags">Tags: {post.tags.join(', ')}</p>
                         <button className="blog-post-button" onClick={() => handleDeletePost(post.id)}>Delete</button>
+                        <div className="blog-post-comments">
+                            <h4>Comments:</h4>
+                            {getCommentsForPost(post.id).map((comment) => (
+                                <div key={comment.id} className="comment">
+                                    <p>{comment.text}</p>
+                                    
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 ))}
 

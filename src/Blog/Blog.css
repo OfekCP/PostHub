@@ -114,4 +114,20 @@ body {
       font-size: 2vw;
     }
   }
+  .comment-delete-button {
+    background-color: #ff0000; /* Red background color */
+    color: #ffffff; /* White text color */
+    border: none;
+    padding: 1vh 1vw; /* Set padding using vh and vw units */
+    cursor: pointer;
+    margin-top: 1vh; /* Set margin using vh unit */
+    border-radius: 2vw; /* Set border radius using vw unit */
+    font-size: 1.2vh; /* Set font size using vh unit */
+    z-index: 8;
+    position: relative;
+  }
+  
+  .comment-delete-button:hover {
+    background-color: #cc0000; /* Darker red background color on hover */
+  }
   
