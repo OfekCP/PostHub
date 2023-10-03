@@ -93,8 +93,12 @@ const Blog = ({ user }) => {
             // Delete a blog post by its ID
             const updatedPosts = blogPosts.filter((post) => post.id !== postId);
             setBlogPosts(updatedPosts);
+            localStorage.setItem('blogs', JSON.stringify(updatedPosts));
+            // Remove the deleted post from local storage
+            localStorage.setItem(`users/${user.username}/blogs`, JSON.stringify(updatedPosts));
         }
     };
+    
     const getCommentsForPost = (postId) => {
         const commentsKey = `post_${postId}_comments`;
         const storedComments = JSON.parse(localStorage.getItem(commentsKey)) || [];

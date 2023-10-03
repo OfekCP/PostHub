@@ -12,32 +12,35 @@ const Home = () => {
     const jsonData = JsonData;
 
     // Function to filter posts based on search query
-    const filterPosts = () => {
-        const query = searchQuery.toLowerCase();
-        const filteredFromJson = jsonData.filter((post) => {
-            const { title, content, tags, categories } = post;
-            return (
-                title.toLowerCase().includes(query) ||
-                content.toLowerCase().includes(query) ||
-                tags.some((tag) => tag.toLowerCase().includes(query)) ||
-                categories.some((category) => category.toLowerCase().includes(query))
-            );
-        });
+const filterPosts = () => {
+    const query = searchQuery.toLowerCase();
+    const filteredFromJson = jsonData.filter((post) => {
+        const { title, content, tags, categories, deleted } = post;
+        return (
+            !deleted &&
+            (title.toLowerCase().includes(query) ||
+            content.toLowerCase().includes(query) ||
+            tags.some((tag) => tag.toLowerCase().includes(query)) ||
+            categories.some((category) => category.toLowerCase().includes(query)))
+        );
+    });
 
-        // Fetch blogs from local storage and filter them
-        const localBlogs = JSON.parse(localStorage.getItem('blogs')) || [];
-        const filteredFromLocalStorage = localBlogs.filter((post) => {
-            const { title, content, tags, categories } = post;
-            return (
-                title.toLowerCase().includes(query) ||
-                content.toLowerCase().includes(query) ||
-                tags.some((tag) => tag.toLowerCase().includes(query)) ||
-                categories.some((category) => category.toLowerCase().includes(query))
-            );
-        });
+    // Fetch blogs from local storage and filter them
+    const localBlogs = JSON.parse(localStorage.getItem('blogs')) || [];
+    const filteredFromLocalStorage = localBlogs.filter((post) => {
+        const { title, content, tags, categories, deleted } = post;
+        return (
+            !deleted &&
+            (title.toLowerCase().includes(query) ||
+            content.toLowerCase().includes(query) ||
+            tags.some((tag) => tag.toLowerCase().includes(query)) ||
+            categories.some((category) => category.toLowerCase().includes(query)))
+        );
+    });
 
-        return [...filteredFromJson, ...filteredFromLocalStorage];
-    };
+    return [...filteredFromJson, ...filteredFromLocalStorage];
+};
+
 
     // Handle search input changes
     const handleSearchInputChange = (e) => {

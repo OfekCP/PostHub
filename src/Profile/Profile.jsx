@@ -70,6 +70,7 @@ const Profile = ({ user }) => {
                 profilePicture: newProfilePicture || defaultProfilePicture,
             };
             localStorage.setItem(`users/${user.username}/profile`, JSON.stringify(userProfileToSave));
+            
         }
     };
 
@@ -103,14 +104,7 @@ const Profile = ({ user }) => {
         }
     };
 
-    const handleDeletePost = (postId) => {
-        // Delete a blog post by its ID
-        const updatedPosts = blogPosts.filter((post) => post.id !== postId);
-        setBlogPosts(updatedPosts);
 
-        // Update the local storage with the updated blog posts
-        saveUserBlogPostsToLocalStorage();
-    };
 
     const handleEditBio = () => {
         // Enable bio editing
@@ -223,9 +217,8 @@ const Profile = ({ user }) => {
                     <h3 className="blog-post-title">{post.title}</h3>
                     <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: post.content }}></div>
                     <p className="blog-post-date">Created at: {post.createdAt}</p>
-                    <p className="blog-post-categories">Categories: {post.categories.join(', ')}</p>
+                            <p className="blog-post-categories">Categories: {post.categories.join(', ')}</p>
                         <p className="blog-post-tags">Tags: {post.tags.join(', ')}</p>
-                    <button className="blog-post-button" onClick={() => handleDeletePost(post.id)}>Delete</button>
                 </div>
             ))}
 
