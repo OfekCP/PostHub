@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Profile.css'
+import {Link} from 'react-router-dom'
 const Profile = ({ user }) => {
     const defaultProfilePicture = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
     const [userProfile, setUserProfile] = useState(null);
@@ -142,8 +143,9 @@ const Profile = ({ user }) => {
     return (
         <div>
             <h2 id="user-profile-heading">User Profile Page</h2>
+            <Link to='/profile/likedpost'><button>liked posts</button></Link>
             <div>
-                <h3 id="username-heading">Username: {userProfile.username}</h3>
+                <h3 id="username-heading">Username: {user.username}</h3>
                 {newProfilePicture ? (
                     <div className="profile-picture-container">
                         <label htmlFor="profile-picture-input" className="profile-picture-label">

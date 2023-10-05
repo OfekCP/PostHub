@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import JsonData from '../posts.json';
 import './Home.css';
 import PostDetails from './PostDetails';
-const Home = () => {
+const Home = ({user}) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [displayedPosts, setDisplayedPosts] = useState([]);
     const [searching, setSearching] = useState(false); // Added searching state
@@ -125,7 +125,7 @@ const filterPosts = () => {
             ) : (
                 <>
                     {selectedPost ? (
-                        <PostDetails post={selectedPost} onClose={handleClosePostDetails} />
+                        <PostDetails post={selectedPost} onClose={handleClosePostDetails} user={user} />
                     ) : (
                         <div className="post-list">
                             {displayedPosts.map((post) => (

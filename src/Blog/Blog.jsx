@@ -12,7 +12,7 @@ const Blog = ({ user }) => {
             ['clean']
         ],
     };
-
+    const [likesCount, setLikesCount] = useState({});
     const [blogPosts, setBlogPosts] = useState(() => {
         // Load blog posts from local storage when the component mounts
         if (user && user.username) {
@@ -41,11 +41,24 @@ const Blog = ({ user }) => {
             setBlogPosts(storedPosts);
         }
     };
+    const fetchLikesCount = () => {
+        if (user && user.username) {
+          blogPosts.forEach((post) => {
+            const postLikedByUsers = JSON.parse(localStorage.getItem(`post_${post.id}_likes`)) || [];
+            const likesCountForPost = postLikedByUsers.length;
+            setLikesCount((prevLikesCount) => ({
+              ...prevLikesCount,
+              [post.id]: likesCountForPost,
+            }));
+          });
+        }
+      };
 
     // Fetch blog posts from localStorage when the component mounts
     useEffect(() => {
         console.log('Blog component mounted');
         fetchBlogPosts();
+        fetchLikesCount();
     }, [user]);
 
     useEffect(() => {
@@ -139,6 +152,7 @@ const Blog = ({ user }) => {
             <div className="blog-posts">
                 {blogPosts.map((post) => (
                     <div className="blog-post" key={post.id}>
+                           <p className="blog-post-likes">Likes: {likesCount[post.id] || 0}</p>
                         <h3 className="blog-post-title">{post.title}</h3>
                         <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: post.content }}></div>
                         <p className="blog-post-date">Created at: {post.createdAt}</p>
