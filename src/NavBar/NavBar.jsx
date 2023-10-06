@@ -1,15 +1,15 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { Link, useNavigate } from 'react-router-dom'; 
 import { useUser } from '../Authentication/UserContext';
 import './NavBar.css';
 
 const Navbar = () => {
   const { user, logout } = useUser();
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate(); 
 
   const handleLogout = () => {
     logout();
-    navigate('/'); // Redirect to the home page after logout
+    navigate('/'); 
   };
 
   return (

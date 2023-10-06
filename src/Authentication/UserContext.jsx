@@ -8,8 +8,6 @@ export function useUser() {
 
 export function UserProvider({ children }) {
   const [user, setUser] = useState(null);
-
-  // Function to load user data from localStorage when the app starts
   useEffect(() => {
     const storedUserData = localStorage.getItem('user');
     if (storedUserData) {
@@ -18,13 +16,11 @@ export function UserProvider({ children }) {
   }, []);
 
   const login = (userData) => {
-    // Save user data in localStorage
     localStorage.setItem('user', JSON.stringify(userData));
     setUser(userData);
   };
 
   const logout = () => {
-    // Clear user authentication data (e.g., token)
     localStorage.removeItem(`users/${user.username}/authData`);
     setUser(null);
   };

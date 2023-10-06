@@ -1,10 +1,8 @@
-/* PostDetails.css */
-
 .post-details-container {
     background-color: var(--background);
-    padding: 5vh; /* Padding based on viewport height */
-    border-radius: 2vh; /* Border radius based on viewport height */
-    box-shadow: 1vw 1vw 2vw rgba(0, 0, 0, 0.1); /* Box shadow based on viewport width */
+    padding: 5vh; 
+    border-radius: 2vh; 
+    box-shadow: 1vw 1vw 2vw rgba(0, 0, 0, 0.1); 
     margin: 5vh;
     position: relative;
     top: 10vh;
@@ -14,8 +12,8 @@
     background-color: var(--primary);
     color: white;
     border: none;
-    padding: 2vh 4vw; /* Padding based on viewport height and width */
-    border-radius: 1vh; /* Border radius based on viewport height */
+    padding: 2vh 4vw; 
+    border-radius: 1vh;
     cursor: pointer;
   }
   
@@ -24,71 +22,63 @@
   }
   
   .post-details-container .post-title {
-    font-size: 4vh; /* Font size based on viewport height */
+    font-size: 4vh; 
     margin-top: 2vh;
     margin-bottom: 2vh;
   }
   
   .post-details-container .post-content {
-    font-size: 2vh; /* Font size based on viewport height */
+    font-size: 2vh;
     line-height: 1.5;
   }
   
   .post-details-container .post-categories,
   .post-details-container .post-tags {
     margin-top: 2vh;
-    font-size: 1.5vh; /* Font size based on viewport height */
+    font-size: 1.5vh; 
     color: var(--accent);
   }
-  /* Assuming you want to style the button with id 'comment' */
-
-/* Assuming you want to style the button with id 'comment' */
-
 #comment {
-    background-color: var(--primary); /* Use custom property */
+    background-color: var(--primary);
     color: white;
-    padding: 2vh 4vw; /* Adjust padding using vh and vw */
+    padding: 2vh 4vw;
     border: none;
-    border-radius: 1vw; /* Adjust border radius using vw */
+    border-radius: 1vw; 
     cursor: pointer;
   }
   
   #comment:hover {
-    background-color: #0056b3; /* Fallback color in case custom property is not supported */
+    background-color: #0056b3; 
   }
-  /* Add these styles to your CSS file */
-/* Add these styles to your CSS file */
 .comments {
-    margin-top: 3vh; /* Adjust the top margin */
-    height: 40vh; /* Set a fixed height for the comments container */
-    overflow-y: auto; /* Add vertical scrollbar when the content overflows */
-    padding: 2vh 0; /* Add padding to the top and bottom of the container */
+    margin-top: 3vh;
+    height: 40vh;
+    overflow-y: auto; 
+    padding: 2vh 0;
   }
   
   .comments h4 {
-    font-size: 3vh; /* Font size based on viewport height */
-    color: var(--primary); /* Use custom property for the text color */
-    margin-bottom: 2vh; /* Adjust the bottom margin */
+    font-size: 3vh;
+    color: var(--primary);
+    margin-bottom: 2vh; 
   }
   
   .comment {
-    background-color: var(--secondary); /* Use custom property for the background color */
-    margin: 1vh 0; /* Adjust vertical margin */
-    border-radius: 1vw; /* Adjust border radius */
-    box-shadow: 0.5vh 0.5vh 1vh rgba(0, 0, 0, 0.1); /* Adjust box shadow */
+    background-color: var(--secondary); 
+    margin: 1vh 0; 
+    border-radius: 1vw; 
+    box-shadow: 0.5vh 0.5vh 1vh rgba(0, 0, 0, 0.1); 
   }
   
   .comment p {
-    font-size: 2vh; /* Font size based on viewport height */
-    line-height: 1.5; /* Adjust line height for readability */
+    font-size: 2vh;
+    line-height: 1.5;
   }
-  
-  /* Optional: Style the categories and tags */
   .post-categories,
   .post-tags {
     margin-top: 2vh;
-    font-size: 1.5vh; /* Font size based on viewport height */
-    color: var(--accent); /* Use custom property for the text color */
+    font-size: 1.5vh; 
+    color: var(--accent); 
   }
   .heart-container {
     --heart-color: rgb(255, 91, 137);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useUser } from '../Authentication/UserContext'; // Ensure the correct path to UserContext
+import { useUser } from '../Authentication/UserContext';
 import './CommentForm.css'
 const CommentForm = ({ post, onCommentSubmit }) => {
   const { user } = useUser();
@@ -13,20 +13,13 @@ const CommentForm = ({ post, onCommentSubmit }) => {
     e.preventDefault();
     
     if (comment.trim() === '') {
-      // Prevent submitting empty comments
       return;
     }
-  
-    // Create a new comment with the format "username: comment"
     const newComment = {
-      id: Date.now(), // Unique identifier for the comment
-      text: `${user ? user.username : 'anonymous'}: ${comment}`,  // Include the username
+      id: Date.now(),
+      text: `${user ? user.username : 'anonymous'}: ${comment}`, 
     };
-  
-    // Call the callback function to submit the comment
     onCommentSubmit(newComment);
-  
-    // Clear the comment input
     setComment('');
   };
 

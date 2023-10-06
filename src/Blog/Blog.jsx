@@ -14,15 +14,12 @@ const Blog = ({ user }) => {
     };
     const [likesCount, setLikesCount] = useState({});
     const [blogPosts, setBlogPosts] = useState(() => {
-        // Load blog posts from local storage when the component mounts
         if (user && user.username) {
             const savedBlogs = localStorage.getItem(`users/${user.username}/blogs`);
             const parsedBlogs = savedBlogs ? JSON.parse(savedBlogs) : [];
-
-            // Ensure all blog posts have the 'tags' property defined as an array
             const blogPostsWithTags = parsedBlogs.map((post) => ({
                 ...post,
-                tags: post.tags || [], // Ensure tags is an array or set it as an empty array
+                tags: post.tags || [], 
             }));
 
             return blogPostsWithTags;
@@ -30,11 +27,7 @@ const Blog = ({ user }) => {
             return [];
         }
     });
-
     const [newPost, setNewPost] = useState({ title: '', content: '', tags: [], categories: [] });
-
-
-    // Function to fetch and set blog posts from local storage
     const fetchBlogPosts = () => {
         if (user && user.username) {
             const storedPosts = JSON.parse(localStorage.getItem(`users/${user.username}/blogs`)) || [];
@@ -53,8 +46,6 @@ const Blog = ({ user }) => {
           });
         }
       };
-
-    // Fetch blog posts from localStorage when the component mounts
     useEffect(() => {
         console.log('Blog component mounted');
         fetchBlogPosts();
@@ -70,30 +61,21 @@ const Blog = ({ user }) => {
 
     const handleAddPost = () => {
         if (user && user.username) {
-            // Check if the content is not empty
             if (newPost.content.trim() === '') {
                 alert('Please fill in the content.');
-                return; // Do not proceed if the content field is empty
+                return; 
             }
-
-            // Add a new blog post with the current date and time
             const post = {
                 ...newPost,
                 id: Date.now(),
                 createdAt: new Date().toLocaleString(),
             };
-
-            // Update the blogPosts state by merging the new post with the existing posts
             const updatedPosts = [...blogPosts, post];
             setBlogPosts(updatedPosts);
 
             // Clear the content field
             setNewPost({ title: '', content: '', tags: [], categories: [] });
-
-            // Save all blogs to local storage
             localStorage.setItem(`users/${user.username}/blogs`, JSON.stringify(updatedPosts));
-
-            // If you want to save all blogs from all users under 'blogs', you can do this:
             const allBlogs = JSON.parse(localStorage.getItem('blogs')) || [];
             const updatedAllBlogs = [...allBlogs, post];
             localStorage.setItem('blogs', JSON.stringify(updatedAllBlogs));
@@ -103,11 +85,9 @@ const Blog = ({ user }) => {
 
     const handleDeletePost = (postId) => {
         if (user && user.username) {
-            // Delete a blog post by its ID
             const updatedPosts = blogPosts.filter((post) => post.id !== postId);
             setBlogPosts(updatedPosts);
             localStorage.setItem('blogs', JSON.stringify(updatedPosts));
-            // Remove the deleted post from local storage
             localStorage.setItem(`users/${user.username}/blogs`, JSON.stringify(updatedPosts));
         }
     };
@@ -128,7 +108,6 @@ const Blog = ({ user }) => {
                 modules={modules}
                 formats={['header', 'bold', 'italic', 'underline', 'strike', 'list', 'link']}
             />
-            {/* Tags input */}
             <input
                 type="text"
                 placeholder="Categories (comma-separated)"
@@ -143,10 +122,6 @@ const Blog = ({ user }) => {
                 onChange={(e) => setNewPost({ ...newPost, tags: e.target.value.split(',').map(tag => tag.trim()) })}
                 className="blog-input"
             />
-
-            {/* Categories input */}
-
-
             <button className="blog-button" onClick={handleAddPost}>Create Post</button>
 
             <div className="blog-posts">

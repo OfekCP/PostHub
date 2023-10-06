@@ -1,121 +1,95 @@
-
-  
-  /* Style the overall container */
-  .home-container {
+.home-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* 100% of the viewport height */
+    height: 100vh;
     background-color: var(--background);
     color: var(--text);
     font-family: Arial, sans-serif;
     text-align: center;
   }
-  
-  /* Style the PostHub title */
   #posthub-title {
-    font-size: 2.5vw; /* Responsive font size */
+    font-size: 2.5vw; 
     color: var(--primary);
-    margin-bottom: 2vh; /* Spacing between title and search bar */
+    margin-bottom: 2vh; 
   }
-  
-  /* Style the search bar container */
   .search-bar {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2vh; /* Spacing between search bar and posts */
+    margin-bottom: 2vh;
   }
   
-  /* Style the search input */
+  
   #search-input {
-    padding: 1vh 2vw; /* Responsive padding */
-    font-size: 1.5vw; /* Responsive font size */
+    padding: 1vh 2vw;
+    font-size: 1.5vw; 
     border: 2px solid var(--secondary);
-    border-radius: 2vw; /* Responsive border radius */
+    border-radius: 2vw; 
   }
-  
-  /* Style the search button */
   #search-button {
-    padding: 1vh 2vw; /* Responsive padding */
-    font-size: 1.5vw; /* Responsive font size */
+    padding: 1vh 2vw; 
+    font-size: 1.5vw; 
     background-color: var(--primary);
     color: white;
     border: none;
-    border-radius: 2vw; /* Responsive border radius */
+    border-radius: 2vw; 
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth transition */
+    transition: background-color 0.3s ease;
   }
-  
-  /* Hover effect for search button */
   #search-button:hover {
     background-color: var(--accent);
   }
-  
-  /* Style the alert message */
   .alert {
-    font-size: 1.5vw; /* Responsive font size */
+    font-size: 1.5vw; 
     color: red;
-    margin-top: 2vh; /* Spacing above the alert message */
+    margin-top: 2vh; 
   }
-  
-  /* Style the post list */
   .post-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2vw; /* Responsive gap between posts */
-    margin-top: 2vh; /* Spacing above the post list */
+    gap: 2vw;
+    margin-top: 2vh;
   }
-  
-  /* Style individual post elements */
   .post {
     background-color: var(--primary);
     color: white;
-    border-radius: 2vw; /* Responsive border radius */
-    padding: 2vh 2vw; /* Responsive padding */
-    width: 30vw; /* Responsive width */
+    border-radius: 2vw;
+    padding: 2vh 2vw;
+    width: 30vw; 
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   }
-  
-  /* Style post title */
   .post-title {
-    font-size: 2vw; /* Responsive font size */
-    margin-bottom: 1vh; /* Spacing below title */
+    font-size: 2vw; 
+    margin-bottom: 1vh; 
   }
-  
-  /* Style post content */
   .post-content {
-    font-size: 1.5vw; /* Responsive font size */
+    font-size: 1.5vw; 
     line-height: 1.4;
     margin-bottom: 1vh;
-    overflow: hidden; /* Hide overflowing content */
-    text-overflow: ellipsis; /* Add ellipsis (...) for long content */
-    white-space: nowrap; /* Prevent content from wrapping */
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
   }
   
-  /* Style post categories and tags */
+  
   .post-categories,
   .post-tags {
-    font-size: 1.2vw; /* Responsive font size */
+    font-size: 1.2vw; 
     font-weight: bold;
   }
-  
-  /* Add hover effect for posts */
   .post:hover {
     background-color: var(--accent);
-    transform: scale(1.05); /* Scale on hover */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    transform: scale(1.05);
+    transition: background-color 0.3s ease, transform 0.3s ease; 
   }
-  /* ... (your existing CSS styles) */
-
-/* Return button */
 .return-button {
     background-color: var(--primary);
     color: var(--background);
     padding: 10px 20px;
-    font-size: 1.2vw; /* Adjust font size based on viewport width */
+    font-size: 1.2vw; 
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -125,7 +99,7 @@
 
 .return-button:hover {
     background-color: var(--accent);
-    transform: scale(1.05); /* Add a hover effect to scale the button slightly */
+    transform: scale(1.05);
 }
 
 

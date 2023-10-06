@@ -8,6 +8,7 @@ import Profile from './Profile/Profile';
 import { useUser } from './Authentication/UserContext';
 import Home from './HomePage/Home'
 import LikedPost from './Profile/LikedPost'
+import PostDetails from './HomePage/PostDetails';
 function App() {
   const { user, username } = useUser();
 
@@ -18,7 +19,6 @@ function App() {
         <Route path='/' element={<Home user={user} />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Registration />} />
-        {/* Always render the Blog component */}
         <Route path='/add-blog' element={<Blog user={user} />} />
         <Route path='profile' element={user && user.username ? <Profile user={user} /> : <div>Loading...</div>} />
         <Route path='/profile/likedpost' element={<LikedPost user={user} />} />

@@ -1,21 +1,14 @@
-/* Profile.css */
-
-/* Center the entire profile container */
 #user-profile-heading {
     text-align: center;
     margin-top: 5vh;
     color: var(--primary);
     font-size: 2.5vh;
   }
-  
-  /* Center the username section */
   #username-heading {
     text-align: center;
     font-size: 2vh;
     color: var(--text);
   }
-  
-  /* Style the "Remove Profile Picture" button with a hover effect */
   #remove-profile-picture-button {
     background-color: var(--accent);
     color: white;
@@ -29,19 +22,10 @@
   #remove-profile-picture-button:hover {
     background-color: var(--secondary);
   }
-  
-  /* Style the profile picture input and center it */
   #profile-picture-input {
     display: block;
     margin: 2vh auto;
   }
-  
-  /* Center the bio section and apply styling */
-/* Profile.css */
-
-/* ... (previous styles) */
-
-/* Bio Editing Section */
 .bio-section {
     text-align: center;
     margin-top: 20px;
@@ -89,17 +73,12 @@
     margin-top: 10px;
     color: var(--text);
   }
-  
-  
-  /* Center the blog posts section */
   #blog-posts-heading {
     text-align: center;
     margin-top: 3vh;
     color: var(--primary);
     font-size: 2vh;
   }
-  
-  /* Style the blog post cards with hover and animation */
   .blog-post {
     margin: 3vh auto;
     padding: 2vh 3vw;
@@ -144,9 +123,6 @@
   .blog-post-button:hover {
     background-color: var(--secondary);
   }
-  /* Profile.css */
-
-/* Center the profile picture and apply cool design */
 .profile-picture-container {
     display: flex;
     flex-direction: column;
@@ -155,25 +131,42 @@
 }
 
 .profile-picture {
-    width: 25vw; /* Adjust the width as needed */
-    height: 25vw; /* Maintain a square aspect ratio with the same width and height */
-    border-radius: 50%; /* Create a circular profile picture */
-    object-fit: cover; /* Maintain aspect ratio and cover the container */
-    border: 2vw solid var(--primary); /* Add a border with the primary color */
-    box-shadow: 0 0 2vw rgba(0, 0, 0, 0.3); /* Add a shadow for a cool effect */
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Apply smooth transitions */
+    width: 25vw; 
+    height: 25vw;
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 2vw solid var(--primary); 
+    box-shadow: 0 0 2vw rgba(0, 0, 0, 0.3); 
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .profile-picture:hover {
-    transform: scale(1.05); /* Enlarge the picture on hover */
-    border-color: var(--accent); /* Change border color on hover */
-    box-shadow: 0 0 3vw rgba(0, 0, 0, 0.4); /* Enhance the shadow on hover */
+    transform: scale(1.05); 
+    border-color: var(--accent); 
+    box-shadow: 0 0 3vw rgba(0, 0, 0, 0.4); 
 }
 
 .remove-profile-picture-button {
-    font-size: 2vw; /* Adjust the button font size */
-    margin-top: 2vh; /* Adjust the top margin */
+    font-size: 2vw; 
+    margin-top: 2vh; 
 }
 #profile-picture-input{
     display: none;
     opacity: 0;}
+.liked-posts-button {
+  display: inline-block;
+  text-decoration: none;
+  margin: 2vh 2vw;
+}
+.liked-posts-button-text {
+  background-color: #0074d9;
+  color: #ffffff;
+  padding: 1.5vh 2vw; 
+  border: none;
+  border-radius: 5px;
+  font-size: 1vw; 
+  cursor: pointer;
+}
+.liked-posts-button-text:hover {
+  background-color: #0056b3;
+}

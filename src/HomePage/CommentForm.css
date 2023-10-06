@@ -11,7 +11,7 @@
     background-color: #0056b3;
 }
 
-/* CommentForm.css */
+
 #comment-form {
     background-color: var(--background);
     border-radius: 2vh;
@@ -23,7 +23,7 @@
 }
 
 #comment-textarea {
-    width: 25vw; /* Adjust width using viewport width */
+    width: 25vw; 
     border: 0.5vw solid var(--secondary);
     border-radius: 1vw;
     resize: none;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Profile.css'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 const Profile = ({ user }) => {
     const defaultProfilePicture = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
     const [userProfile, setUserProfile] = useState(null);
@@ -8,61 +8,47 @@ const Profile = ({ user }) => {
     const [newBio, setNewBio] = useState('');
     const [newProfilePicture, setNewProfilePicture] = useState(null);
     const [editingBio, setEditingBio] = useState(false);
-
-    // Function to fetch user profile data
     const fetchUserProfile = () => {
         if (user && user.username) {
-            // Fetch user profile data here
-            // You can replace this with your logic to fetch the user's profile
             const userProfileData = {
                 username: user.username,
-                profilePicture: '', // Replace with actual profile picture URL
-                bio: '', // Replace with the user's bio
+                profilePicture: '', 
+                bio: '',
             };
             setUserProfile(userProfileData);
         }
     };
-
-    // Function to fetch user's profile data from local storage
-    // Function to fetch user's profile data from local storage
     const fetchUserProfileFromLocalStorage = () => {
         if (user && user.username) {
             const savedProfile = localStorage.getItem(`users/${user.username}/profile`);
             if (savedProfile) {
                 const parsedProfile = JSON.parse(savedProfile);
                 setUserProfile(parsedProfile);
-
-                // Set the profile picture from local storage or default if not available
                 setNewProfilePicture(parsedProfile.profilePicture || defaultProfilePicture);
             }
         }
     };
-
-
-    // Function to fetch and set user's published blog posts
     const fetchUserBlogPosts = () => {
         if (user && user.username) {
-            // Read the user's blog posts from local storage
             const savedBlogs = localStorage.getItem(`users/${user.username}/blogs`);
 
             if (savedBlogs) {
-                // If there are saved blog posts in local storage, parse and set them in the state
                 setBlogPosts(JSON.parse(savedBlogs));
             } else {
-                // If there are no saved blog posts, initialize with an empty array
+               
                 setBlogPosts([]);
             }
         }
     };
 
-    // Fetch user profile and blog posts when the component mounts
+   
     useEffect(() => {
         fetchUserProfile();
         fetchUserProfileFromLocalStorage();
         fetchUserBlogPosts();
     }, [user]);
 
-    // Function to save user profile data to local storage
+   
     const saveUserProfileToLocalStorage = () => {
         if (user && user.username) {
             const userProfileToSave = {
@@ -71,11 +57,9 @@ const Profile = ({ user }) => {
                 profilePicture: newProfilePicture || defaultProfilePicture,
             };
             localStorage.setItem(`users/${user.username}/profile`, JSON.stringify(userProfileToSave));
-            
+
         }
     };
-
-    // Function to save user blog posts to local storage
     const saveUserBlogPostsToLocalStorage = () => {
         if (user && user.username) {
             localStorage.setItem(`users/${user.username}/blogs`, JSON.stringify(blogPosts));
@@ -89,18 +73,13 @@ const Profile = ({ user }) => {
             const reader = new FileReader();
 
             reader.onload = (e) => {
-                // Set the new profile picture and display the uploaded image
                 setNewProfilePicture(e.target.result);
-
-                // Save the profile picture URL to local storage
                 if (user && user.username) {
                     const userProfileData = JSON.parse(localStorage.getItem(`users/${user.username}/profile`)) || {};
                     userProfileData.profilePicture = e.target.result;
                     localStorage.setItem(`users/${user.username}/profile`, JSON.stringify(userProfileData));
                 }
             };
-
-            // Read the file as a data URL
             reader.readAsDataURL(file);
         }
     };
@@ -108,20 +87,16 @@ const Profile = ({ user }) => {
 
 
     const handleEditBio = () => {
-        // Enable bio editing
         setEditingBio(true);
     };
 
     const handleSaveBio = () => {
-        // Save the edited bio and disable editing
         setUserProfile({
             ...userProfile,
             bio: newBio,
             profilePicture: newProfilePicture || defaultProfilePicture,
         });
         setEditingBio(false);
-
-        // Update the local storage with the updated profile data
         saveUserProfileToLocalStorage();
     };
 
@@ -130,20 +105,20 @@ const Profile = ({ user }) => {
     }
 
     const handleRemoveProfilePicture = () => {
-        // Remove the newProfilePicture
         setNewProfilePicture(null);
-
-        // Remove the profile picture URL from local storage
         if (user && user.username) {
             const userProfileData = JSON.parse(localStorage.getItem(`users/${user.username}/profile`)) || {};
-            userProfileData.profilePicture = ''; // Clear the profile picture URL
+            userProfileData.profilePicture = ''; 
             localStorage.setItem(`users/${user.username}/profile`, JSON.stringify(userProfileData));
         }
     };
     return (
         <div>
             <h2 id="user-profile-heading">User Profile Page</h2>
-            <Link to='/profile/likedpost'><button>liked posts</button></Link>
+            <Link to='/profile/likedpost' className="liked-posts-button">
+                <button className="liked-posts-button-text">Liked Posts</button>
+            </Link>
+
             <div>
                 <h3 id="username-heading">Username: {user.username}</h3>
                 {newProfilePicture ? (
@@ -219,8 +194,8 @@ const Profile = ({ user }) => {
                     <h3 className="blog-post-title">{post.title}</h3>
                     <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: post.content }}></div>
                     <p className="blog-post-date">Created at: {post.createdAt}</p>
-                            <p className="blog-post-categories">Categories: {post.categories.join(', ')}</p>
-                        <p className="blog-post-tags">Tags: {post.tags.join(', ')}</p>
+                    <p className="blog-post-categories">Categories: {post.categories.join(', ')}</p>
+                    <p className="blog-post-tags">Tags: {post.tags.join(', ')}</p>
                 </div>
             ))}
 

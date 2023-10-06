@@ -5,13 +5,10 @@ import PostDetails from './PostDetails';
 const Home = ({user}) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [displayedPosts, setDisplayedPosts] = useState([]);
-    const [searching, setSearching] = useState(false); // Added searching state
-    const [showAlert, setShowAlert] = useState(false); // Added showAlert state
+    const [searching, setSearching] = useState(false); 
+    const [showAlert, setShowAlert] = useState(false);
     const [selectedPost, setSelectedPost] = useState(null); 
-    // Simulated JSON data for 20 random blog posts
     const jsonData = JsonData;
-
-    // Function to filter posts based on search query
 const filterPosts = () => {
     const query = searchQuery.toLowerCase();
     const filteredFromJson = jsonData.filter((post) => {
@@ -24,8 +21,6 @@ const filterPosts = () => {
             categories.some((category) => category.toLowerCase().includes(query)))
         );
     });
-
-    // Fetch blogs from local storage and filter them
     const localBlogs = JSON.parse(localStorage.getItem('blogs')) || [];
     const filteredFromLocalStorage = localBlogs.filter((post) => {
         const { title, content, tags, categories, deleted } = post;
@@ -40,31 +35,27 @@ const filterPosts = () => {
 
     return [...filteredFromJson, ...filteredFromLocalStorage];
 };
-
-
-    // Handle search input changes
     const handleSearchInputChange = (e) => {
         const query = e.target.value;
         setSearchQuery(query);
-        setShowAlert(false); // Reset showAlert when the user types a new query
+        setShowAlert(false); 
     };
+const handleSearch = () => {
+    setSearching(true);
+    if (searchQuery.trim() === '') {
+        setShowAlert(true);
+        return;
+    }
 
-    // Function to handle search
-    const handleSearch = () => {
-        setSearching(true);
-        const filteredPosts = filterPosts();
+    const filteredPosts = filterPosts();
 
-        if (filteredPosts.length === 0) {
-            // No matching posts found, show an alert
-            setShowAlert(true);
-        } else {
-            // Matching posts found, display them
-            setShowAlert(false);
-            setDisplayedPosts(filteredPosts);
-        }
-    };
-
-    // Handle pressing Enter key in the search input
+    if (filteredPosts.length === 0) {
+        setShowAlert(true);
+    } else {
+        setShowAlert(false);
+        setDisplayedPosts(filteredPosts);
+    }
+};
     const handleSearchInputKeyPress = (e) => {
         if (e.key === 'Enter') {
             handleSearch();
@@ -73,9 +64,8 @@ const filterPosts = () => {
 
     useEffect(() => {
         if (!searching) {
-            // Fetch random posts when the component mounts
             const shuffledPosts = [...jsonData].sort(() => 0.5 - Math.random());
-            const selectedPosts = shuffledPosts.slice(0, 6); // Display 6 random posts initially
+            const selectedPosts = shuffledPosts.slice(0, 6); 
             setDisplayedPosts(selectedPosts);
         }
     }, [searching, jsonData]);
@@ -87,9 +77,8 @@ const filterPosts = () => {
     }
     const handleReturn = () => {
         setSearching(false);
-        setSearchQuery(''); // Clear the search input
-        setShowAlert(false); // Hide the alert
-        // Fetch and display random posts (similar to the initial useEffect)
+        setSearchQuery(''); 
+        setShowAlert(false); 
         const shuffledPosts = [...jsonData].sort(() => 0.5 - Math.random());
         const selectedPosts = shuffledPosts.slice(0, 6);
         setDisplayedPosts(selectedPosts);
@@ -140,13 +129,14 @@ const filterPosts = () => {
                     )}
                 </>
             )}
-            {searching && (
+            {searching && showAlert && ( 
                 <button id="return-button" className="return-button" onClick={handleReturn}>
                     Return
                 </button>
             )}
         </div>
     );
+    
 
 };
 
